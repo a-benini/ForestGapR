@@ -12,7 +12,7 @@ GapSizeFDist(gaps_stats,method,...)
 \item{method}{If method='Asner_2013' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described Asner et al. (2013)
 and if methods='Hanel_2017' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described in Hanel et al. (2017)}
 
-\item{...}{Supplementary parameters for [graphics::plot()).}
+\item{...}{Supplementary parameters for \code{\link[graphics:plot.default]{graphics::plot()}}.}
 }
 \value{
 A log-log plot of gap-size Frequency Distributions and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size Frequency Distributions and ii) method used.

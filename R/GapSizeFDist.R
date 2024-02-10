@@ -7,7 +7,7 @@
 #' @param gaps_stats A data.frame containing basic statistics of forest gaps. Output of [GapStats()] function.
 #' @param method If method='Asner_2013' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described Asner et al. (2013)
 #' and if methods='Hanel_2017' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described in Hanel et al. (2017)
-#' @param ... Supplementary parameters for [graphics::plot()).
+#' @param ... Supplementary parameters for [graphics::plot()].
 #' @return A log-log plot of gap-size Frequency Distributions and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size Frequency Distributions and ii) method used.
 #' The \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} parameter is derived for the Zeta distribution using a maximum likelihood estimator. See details section.
 #'
