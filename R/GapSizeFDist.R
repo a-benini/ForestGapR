@@ -49,6 +49,7 @@
 #' grid(4, 4)
 #' @export
 GapSizeFDist <- function(gaps_stats, method = "Hanel_2017", ...) {
+  method <- match.arg(method, c("Hanel_2017", "Asner_2013"))
   if (method == "Asner_2013") {
     fit <- stats::optimize(function(data, lambda) {
       2 * sum(-log(data^-lambda / VGAM::zeta(x = lambda)))
@@ -62,9 +63,7 @@ GapSizeFDist <- function(gaps_stats, method = "Hanel_2017", ...) {
     eqn <- bquote(lambda == .(round(fit$minimum, 3)) * "," ~ ~ n == .(nrow(gaps_stats)))
     graphics::legend("topright", legend = eqn, bty = "n")
     return(list(lambda = fit$minimum, gap.freq = cbind(gap.size = gap.size[-1], gap.freq = gap.freq), method = method))
-  }
-  
-  if (method == "Hanel_2017") {
+  }else{ # method = "Hanel_2017" / default
     a <- poweRlaw::conpl$new(gaps_stats$gap_area)
     lambda_poweRlaw <- as.numeric(poweRlaw::estimate_pars(a)[1]) # saving as a separate object
     
