@@ -64,10 +64,9 @@ GapSizeFDist <- function(gaps_stats, method = "Hanel_2017", ...) {
   gap.freq <- as.numeric(table(base::cut(gaps_stats$gap_area, breaks = gap.size)))
   gap.freq_mat <- cbind(gap.size = gap.size[-1], gap.freq = gap.freq)
   
-  graphics::plot(gap.freq~gap.size, data = gap.freq_mat,  log = "xy", ...)
+  graphics::plot(gap.freq~gap.size, data = gap.freq_mat[gap.freq_mat[, "gap.freq"] > 0, ],  log = "xy", ...)
   eqn <- bquote(lambda == .(round(.lambda, 3)) * "," ~ ~ n == .(nrow(gaps_stats)))
   graphics::legend("topright", legend = eqn, bty = "n")
 
   return(list(lambda = .lambda, gap.freq = gap.freq_mat, method = method))
 }
-
