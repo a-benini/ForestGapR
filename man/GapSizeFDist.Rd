@@ -15,7 +15,7 @@ and if methods='Hanel_2017' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\o
 \item{...}{Supplementary parameters for \code{\link[graphics:plot.default]{graphics::plot()}}.}
 }
 \value{
-A log-log plot of gap-size Frequency Distributions and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size Frequency Distributions and ii) method used.
+A log-log plot of gap-size Frequency Distributions and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size Frequency Distributions and iii) method used.
 The \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} parameter is derived for the Zeta distribution using a maximum likelihood estimator. See details section.
 }
 \description{
