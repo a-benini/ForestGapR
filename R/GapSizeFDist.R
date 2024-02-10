@@ -54,26 +54,20 @@ GapSizeFDist <- function(gaps_stats, method = "Hanel_2017", ...) {
     fit <- stats::optimize(function(data, lambda) {
       2 * sum(-log(data^-lambda / VGAM::zeta(x = lambda)))
     }, data = gaps_stats$gap_area, lower = 1.0001, upper = 20, maximum = F)
-    
-    # zeta function from VGAM package
-    gap.size <- seq(0, max(gaps_stats$gap_area), 1)
-    gap.freq <- as.numeric(table(base::cut(gaps_stats$gap_area, breaks = gap.size)))
-    
-    graphics::plot(y = gap.freq, x = gap.size[-1], log = "xy", ...)
-    eqn <- bquote(lambda == .(round(fit$minimum, 3)) * "," ~ ~ n == .(nrow(gaps_stats)))
-    graphics::legend("topright", legend = eqn, bty = "n")
-    return(list(lambda = fit$minimum, gap.freq = cbind(gap.size = gap.size[-1], gap.freq = gap.freq), method = method))
+    .lambda <- fit$minimum
   }else{ # method = "Hanel_2017" / default
     a <- poweRlaw::conpl$new(gaps_stats$gap_area)
-    lambda_poweRlaw <- as.numeric(poweRlaw::estimate_pars(a)[1]) # saving as a separate object
-    
-    gap.size <- seq(0, max(gaps_stats$gap_area), 1)
-    gap.freq <- as.numeric(table(base::cut(gaps_stats$gap_area, breaks = gap.size)))
-    
-    graphics::plot(y = gap.freq, x = gap.size[-1], log = "xy", ...)
-    eqn <- bquote(lambda == .(round(lambda_poweRlaw, 3)) * "," ~ ~ n == .(nrow(gaps_stats)))
-    graphics::legend("topright", legend = eqn, bty = "n")
-    return(list(lambda = as.numeric(lambda_poweRlaw), gap.freq = cbind(gap.size = gap.size[-1], gap.freq = gap.freq), method = method))
+    .lambda <- as.numeric(poweRlaw::estimate_pars(a)[1]) # saving as a separate object
   }
+  
+  gap.size <- seq(0, max(gaps_stats$gap_area), 1)
+  gap.freq <- as.numeric(table(base::cut(gaps_stats$gap_area, breaks = gap.size)))
+  gap.freq_mat <- cbind(gap.size = gap.size[-1], gap.freq = gap.freq)
+  
+  graphics::plot(gap.freq~gap.size, data = gap.freq_mat,  log = "xy", ...)
+  eqn <- bquote(lambda == .(round(.lambda, 3)) * "," ~ ~ n == .(nrow(gaps_stats)))
+  graphics::legend("topright", legend = eqn, bty = "n")
+
+  return(list(lambda = .lambda, gap.freq = gap.freq_mat, method = method))
 }
 
