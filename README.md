@@ -50,7 +50,7 @@ library(ForestGapR)
 ``` r
 # Loading terra and viridis library
 library(terra)
-#> terra 1.7.65
+#> terra 1.7.78
 library(viridis)
 #> Loading required package: viridisLite
 
@@ -80,13 +80,16 @@ This function computes a series of forest canopy gap statistics
 
 List of forest gaps statistics:
 
-- `gap_id`: gap id;
-- `gap_area`: area of gap (m<sup>2</sup>);
-- `chm_max`: Maximum canopy height (m) within gap boundary;
-- `chm_min`: Minimum canopy height (m) within gap boundary;
-- `chm_mean`: Mean canopy height (m) within gap boundary;
-- `chm_sd`: Standard Deviation of canopy height (m) within gap boundary;
-- `chm_range`: Range of canopy height (m) within gap boundary
+- `gap_id`: gap id
+- `gap_area`: area of gap \[m<sup>2</sup>\]
+- `chm_max`: Maximum canopy height \[m\] within gap boundary
+- `chm_min`: Minimum canopy height \[m\] within gap boundary
+- `chm_mean`: Mean canopy height \[m\] within gap boundary
+- `chm_sd`: Standard Deviation of canopy height \[m\] within gap
+  boundary
+- `chm_gini`: Gini coefficient of canopy height \[0,1\] within gap
+  boundary
+- `chm_range`: Range of canopy height \[m\] within gap boundary
 
 ``` r
 # Loading terra library
