@@ -2,24 +2,23 @@
 % Please edit documentation in R/GapSizeFDist.R
 \name{GapSizeFDist}
 \alias{GapSizeFDist}
-\title{Forest Canopy Gap-size Frequency Distributions}
+\title{Forest Canopy Gap-size Frequency Distribution}
 \usage{
 GapSizeFDist(gaps_stats,method,...)
 }
 \arguments{
-\item{gaps_stats}{A data.frame containing basic statistics of forest gaps. Output of \code{\link[=GapStats]{GapStats()}} function.}
+\item{gaps_stats}{A \code{data.frame} containing basic statistics of forest gaps. Output of \code{\link[=GapStats]{GapStats()}} function.}
 
-\item{method}{If method='Asner_2013' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described Asner et al. (2013)
-and if methods='Hanel_2017' the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} is computed following the method described in Hanel et al. (2017)}
+\item{method}{method computing the \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}: \code{Hanel_2017} (default) described in Hanel et al. (2017) or \code{Asner_2013} described in Asner et al. (2013).}
 
 \item{...}{Supplementary parameters for \code{\link[graphics:plot.default]{graphics::plot()}}.}
 }
 \value{
-A log-log plot of gap-size Frequency Distributions and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size Frequency Distributions and iii) method used.
+A log-log plot of the gap-size frequency distribution and a list containing: i) \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}, ii) the gap-size frequency distribution and iii) the method used.
 The \ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}} parameter is derived for the Zeta distribution using a maximum likelihood estimator. See details section.
 }
 \description{
-This function quantifies forest canopy gap size-frequency distributions and estimates power-law exponent (\ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}) from the Zeta distribution.
+This function quantifies the forest canopy gap size-frequency distribution and estimates the power-law exponent (\ifelse{latex}{\out{$\lambda$}}{\ifelse{html}{\out{&lambda;}}{lambda}}) from the Zeta distribution.
 }
 \examples{
 # Loading terra library
